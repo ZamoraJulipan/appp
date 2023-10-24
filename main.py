@@ -50,7 +50,7 @@ class dev(MDApp):
         return Ui()
     def file_manager_open(self):
         try:
-            self.file_manager.show('/')#sdcard
+            self.file_manager.show('/sdcard')#sdcard
         except TypeError:
             pass
     def select_path(self, path):
