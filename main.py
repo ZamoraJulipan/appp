@@ -61,7 +61,7 @@ class dev(MDApp):
             self.file_manager.close()
             def actualizar1(norma,camino):
                 self.root.ids.labeluno.text = 'preparando'
-                from PIL import Image
+                import uiautomator
                 self.root.ids.labeldos.text = 'Sí se inició'
             empieza = threading.Thread(target=actualizar1,args=(1,path))
             empieza.start()
