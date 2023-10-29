@@ -4,6 +4,33 @@ from kivy.lang import Builder
 from kivy.uix.widget import Widget
 from uiautomator import Device
 
+KV = '''
+<ui>:
+    MDScreen:
+        MDBoxLayout:
+            MDRectangleFlatButton:
+                text: 'empezar'
+                on_release:
+                    app.start_recording()
+            
+            MDRectangleFlatButton:
+                text: 'terminar'
+                on_release:
+                    app.stop_recording()
+        MDBoxLayout:
+            MDLabel:
+                id: label_final
+                pos_hint: {'center_x':.5,'center_y':.5}
+                text: ''
+        MDBoxLayout:
+            MDRectangleFlatButton:
+                pos_hint: {'center_x':1.2,'center_y':.6}
+                text: 'primer toque'
+            MDRectangleFlatButton:
+                pos_hint: {'center_x':.9,'center_y':.7}
+                text: 'segundo toque'
+'''
+
 class Ui(ScreenManager):
     pass
 
@@ -32,7 +59,7 @@ class Touch(Widget):
 class TouchRecorderApp(MDApp):
     def build(self):
         self.recorder = Touch()
-        Builder.load_file('prueba.kv')
+        Builder.load_string(KV)
         return Ui()
 
     def start_recording(self):
