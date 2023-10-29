@@ -4,7 +4,7 @@
 title = My Application
 
 # (str) Package name
-package.name = prueba16
+package.name = prueba18
 
 # (str) Package domain (needed for android/ios packaging)
 package.domain = org.test
@@ -37,7 +37,7 @@ version = 0.1
 
 # (list) Application requirements
 # comma separated e.g. requirements = sqlite3,kivy
-requirements = python3==3.9.9,kivy==2.2.1,kivymd==1.1.1,hostpython3==3.9.9,uiautomator
+requirements = python3==3.9.9,kivy==2.2.1,kivymd==1.1.1,hostpython3==3.9.9
 
 # (str) Custom source folders for requirements
 # Sets custom source for any requirements with recipes
