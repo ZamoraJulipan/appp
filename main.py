@@ -27,7 +27,8 @@ class dev(MDApp):
             message = 'Esta es una notificacion',  
             app_icon = None,  
             timeout = 10,  
-            toast = True
+            toast = False,
+            app_name = 'Batipy'
         )
 
 dev().run()
