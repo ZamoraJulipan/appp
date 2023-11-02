@@ -12,7 +12,7 @@ class main(MDApp):
     
     def guardar(self,texto):
         try:
-            with open('.\\sdcard\\Documentos\\texto_nuevo.txt','w+') as archivo:
+            with open('/sdcard/texto_nuevo.txt','w+') as archivo:
                 archivo.write(texto)
                 archivo.close()
         except TypeError:
