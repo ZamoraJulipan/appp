@@ -22,9 +22,9 @@ class dev(MDApp):
         return Ui()
     
     def notificar(self):
-        notification.android.title = "Coso"
-        notification.android.message = "Cosos content"
-        notification.android.ticker = "Coso con más contenido"
-        notification.notify()
+        notification.notify(
+            title = "Coso"
+            message = "Cosos content"
+        )
 
 dev().run()
