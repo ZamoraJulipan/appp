@@ -1,0 +1,38 @@
+#:kivy 1.1.1
+
+<ui>:
+    MDScreen:
+        MDBoxLayout:
+            pos_hint: {'center_x':1}
+            MDLabel:
+                text: 'toca'
+        MDBoxLayout:
+            pos_hint: {'center_x':1,'center_y':1.2}
+            MDRectangleFlatButton:
+                text: 'grabar'
+                on_release:
+                    app.empezar_toques()
+        MDBoxLayout:
+            MDRectangleFlatButton:
+                text: 'verificar texto'
+                on_release:
+                    root.current = 'text'
+                    app.verify_text()
+        MDBoxLayout:
+            pos_hint: {'center_y':.6}
+            MDRectangleFlatButton:
+                text: 'verify'
+                on_release:
+                    app.verify_bool()
+        MDBoxLayout:
+            pos_hint: {'center_y':.8}
+            MDRectangleFlatButton:
+                text: 'archivo normal'
+                on_release:
+                    app.archivo_normal()
+
+    MDScreen:
+        name: 'text'
+        MDBoxLayout:
+            MDLabel:
+                id: coordenadas
