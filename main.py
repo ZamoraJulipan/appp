@@ -27,10 +27,11 @@ class dev(MDApp):
             return None
         video = YouTube(link)
         nombre = nombre + '.mp4'
-        ruta = './sdcard/Downloads'
+        ruta = '/sdcard/Download'
         def descarga(name=nombre,path=ruta,vd=video):
             stream = vd.streams.get_highest_resolution()
             stream.download(output_path=path,filename=name)
+            print('ya')
         hilo = threading.Thread(target=descarga)
         hilo.start()
         toast('Descargando...')
