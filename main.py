@@ -3,6 +3,7 @@ from kivy.uix.screenmanager import ScreenManager
 from kivy.lang import Builder
 from kivymd.toast import toast
 import threading
+import os
 
 class Ui(ScreenManager):
     pass
@@ -31,7 +32,6 @@ class dev(MDApp):
         def descarga(name=nombre,path=ruta,vd=video):
             stream = vd.streams.get_highest_resolution()
             stream.download(output_path=path,filename=name)
-            print('ya')
         hilo = threading.Thread(target=descarga)
         hilo.start()
         toast('Descargando...')
@@ -40,5 +40,8 @@ class dev(MDApp):
         self.opcion = electiva
         self.root.ids.opcionVideo.disabled = True
         self.root.ids.opcionAudio.disabled = True
+    
+    def comprobar_existencia(self,nombre):
+        toast(os.path.exists(f'{nombre}.mp4'))
 
 dev().run()
