@@ -5,7 +5,7 @@ from kivymd.toast import toast
 
 KV = '''
 <ui>:
-    MDScren:
+    MDScreen:
         MDBoxLayout:
             MDRectangleFlatButton:
                 text: 'Importar'
