@@ -1,0 +1,69 @@
+#:kivy 1.1.1
+
+<ui>:
+    MDScreen:
+        name: 'principal'
+        MDBoxLayout:
+            orientation: 'horizontal'
+            MDScrollView:
+                MDList:
+                    OneLineListItem:
+                        text: 'Bat-Tube'
+                        on_release:
+                            root.current = 'Bat-Tube'
+    
+    MDScreen:
+        name: 'Bat-Tube'
+        MDBoxLayout:
+            orientation: 'horizontal'
+            pos_hint: {'center_y':1.4}
+            MDIconButton:
+                icon: 'devolver.png'
+                icon_size: 42
+                on_release:
+                    root.current = 'principal'
+                    opcionAudio.disabled = False
+                    opcionVideo.disabled = False
+        MDBoxLayout:
+            orientation: 'horizontal'
+            halign_x: 'center'
+            pos_hint: {'center_x':.65,'center_y':1.25}
+            MDBoxLayout:
+                MDTextField:
+                    id: lynk
+                    hint_text: 'Link del vídeo'
+                    size_hint_x: None
+                    width: 370
+        MDBoxLayout:
+            orientation: 'horizontal'
+            halign_x: 'center'
+            pos_hint: {'center_x':.65,'center_y':1.12}
+            MDBoxLayout:
+                MDTextField:
+                    id: name
+                    hint_text: 'Nombre de la descarga'
+                    size_hint_x: None
+                    width: 370
+        MDBoxLayout:
+            orientation: 'horizontal'
+            padding: '10dp'
+            spacing: '30dp'
+            pos_hint: {'center_x':.64,'center_y':1.01}
+            MDRectangleFlatButton:
+                id: opcionVideo
+                text: 'Video'
+                on_release:
+                    app.eleccion_descarga('v')
+            MDRectangleFlatButton:
+                id: opcionAudio
+                text: 'Audio'
+                on_release:
+                    app.eleccion_descarga('a')
+        MDBoxLayout:
+            halign: 'center'
+            pos_hint: {'center_x':.65,'center_y':0.92} 
+            MDRectangleFlatButton:
+                text: 'Descargar'
+                on_release:
+                    app.download_yt(lynk.text,name.text)
+        
