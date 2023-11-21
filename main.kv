@@ -61,9 +61,14 @@
                     app.eleccion_descarga('a')
         MDBoxLayout:
             halign: 'center'
-            pos_hint: {'center_x':.65,'center_y':0.92} 
+            pos_hint: {'center_x':.65,'center_y':0.92}
+            orientation: 'horizontal'
+            spacing: '30dp'
             MDRectangleFlatButton:
                 text: 'Descargar'
                 on_release:
                     app.download_yt(lynk.text,name.text)
-        
+            MDRectangleFlatButton:
+                text: 'Comprobar'
+                on_release:
+                    app.comprobar_existencia(name.text)
