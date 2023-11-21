@@ -27,7 +27,7 @@ class dev(MDApp):
             return None
         video = YouTube(link)
         nombre = nombre + '.mp4'
-        ruta = '/sdcard'
+        ruta = './sdcard/Downloads'
         def descarga(name=nombre,path=ruta,vd=video):
             stream = vd.streams.get_highest_resolution()
             stream.download(output_path=path,filename=name)
