@@ -42,6 +42,6 @@ class dev(MDApp):
         self.root.ids.opcionAudio.disabled = True
     
     def comprobar_existencia(self,nombre):
-        toast(os.path.exists(f'{nombre}.mp4'))
+        toast(str(os.path.exists(f'{nombre}.mp4')))
 
 dev().run()
