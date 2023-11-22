@@ -23,14 +23,18 @@ class dev(MDApp):
 
     def download_yt(self,link,nombre):
         from pytube import YouTube
+        self.n = ''
+        video_nombre = []
         self.listo = False
         if link == '' or nombre == '':
             toast('LLene todos los campos')
             return None
-        video = YouTube(link)
-        nombre = nombre + '.mp4'
-        video_nombre = video.title
-        toast(video_nombre)
+        def buscar_nombre(guardar):
+            video = YouTube(link)
+            guardar.append(video.title)
+        hilo = threading.Thread(target=buscar_nombre(video_nombre))
+        hilo.start()
+        self.n = video_nombre[0]
     
     def eleccion_descarga(self,electiva):
         self.opcion = electiva
@@ -38,7 +42,6 @@ class dev(MDApp):
         self.root.ids.opcionAudio.disabled = True
     
     def comprobar_existencia(self,nombre):
-        revisar = str(os.path.exists(f'{nombre}.mp4'))
-        toast(f'{self.listo},{revisar}')
+        toast(self.n)
 
 dev().run()
