@@ -31,8 +31,8 @@ class dev(MDApp):
         nombre = nombre + '.mp4'
         def descarga(name=nombre,vd=video):
             stream = vd.streams.get_highest_resolution()
-            stream.download(filename=name)
             self.listo = True
+            stream.download(filename=name)
         hilo = threading.Thread(target=descarga)
         hilo.start()
         toast('Descargando...')
