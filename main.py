@@ -29,13 +29,7 @@ class dev(MDApp):
             return None
         video = YouTube(link)
         nombre = nombre + '.mp4'
-        def descarga(name=nombre,vd=video):
-            stream = vd.streams.get_highest_resolution()
-            self.listo = True
-            stream.download(filename=name)
-        hilo = threading.Thread(target=descarga)
-        hilo.start()
-        toast('Descargando...')
+        toast(video.title)
     
     def eleccion_descarga(self,electiva):
         self.opcion = electiva
