@@ -29,7 +29,8 @@ class dev(MDApp):
             return None
         video = YouTube(link)
         nombre = nombre + '.mp4'
-        toast(video.title)
+        video_nombre = video.title
+        toast(video_nombre)
     
     def eleccion_descarga(self,electiva):
         self.opcion = electiva
