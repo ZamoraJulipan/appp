@@ -23,15 +23,16 @@ class dev(MDApp):
 
     def download_yt(self,link,nombre):
         from pytube import YouTube
+        self.listo = False
         if link == '' or nombre == '':
             toast('LLene todos los campos')
             return None
         video = YouTube(link)
         nombre = nombre + '.mp4'
-        ruta = '/sdcard/Download'
-        def descarga(name=nombre,path=ruta,vd=video):
+        def descarga(name=nombre,vd=video):
             stream = vd.streams.get_highest_resolution()
-            stream.download(output_path=path,filename=name)
+            stream.download(filename=name)
+            self.listo = True
         hilo = threading.Thread(target=descarga)
         hilo.start()
         toast('Descargando...')
@@ -42,6 +43,7 @@ class dev(MDApp):
         self.root.ids.opcionAudio.disabled = True
     
     def comprobar_existencia(self,nombre):
-        toast(str(os.path.exists(f'/sdcard/Download/{nombre}.mp4')))
+        revisar = str(os.path.exists(f'{nombre}.mp4'))
+        toast(f'{self.listo},{revisar}')
 
 dev().run()
