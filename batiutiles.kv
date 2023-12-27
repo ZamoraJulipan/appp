@@ -1,0 +1,56 @@
+#:kivy 1.1.1
+
+<ui>:
+    MDScreen:
+        name: 'log in'
+        halign: 'center'
+        MDBoxLayout:
+            Image:
+                halign: 'center'
+                pos_hint: {'center_y':0.85}
+                source: 'batlogo2.png'
+        MDBoxLayout:
+            halign: 'center'
+            orientation: 'horizontal'
+            pos_hint: {'center_x':.86}
+            MDTextField:
+                id: user
+                pos_hint: {'center_y':.55}
+                hint_text: 'Usuario'
+                size_hint_x: None
+                width: 200
+        MDBoxLayout:
+            halign: 'center'
+            orientation: 'horizontal'
+            pos_hint: {'center_x':.86}
+            MDTextField:
+                id: contra
+                pos_hint: {'center_y':.41}
+                hint_text: 'Contraseña'
+                size_hint_x: None
+                width: 200
+        MDBoxLayout:
+            halign:'center'
+            orientation: 'horizontal'
+            pos_hint: {'center_x':.86,'center_y':.75}
+            MDRectangleFlatButton:
+                text: 'Ingresar'
+                text_color: '#E4EC38'
+                on_release:
+                    app.log_in(user.text,contra.text)
+
+    MDScreen:
+        name: 'principal'
+        MDScrollView:
+            MDList:
+                OneLineListItem:
+                    text: 'Bati-Contras'
+                    on_release:
+                        root.current = 'contras'
+    
+    MDScreen:
+        name: 'contras'
+        MDScrollView:
+            MDList:
+                OneLineListItem:
+                    text: 'Contra 1'
