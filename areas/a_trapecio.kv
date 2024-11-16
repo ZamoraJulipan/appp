@@ -1,0 +1,43 @@
+<MDTextField>:
+    input_filter: 'float'
+Screen:
+    name: 'a_trapecio'
+    MDFloatLayout:
+        MDIconButton:
+            icon: 'arrow-left-bold-circle-outline'
+            pos_hint: {'left':1,'top': 1}
+            on_press: app.regresar('areas')
+        Image:
+            source: ".\\areas\\area_trapecio.jpeg"
+            size_hint: 0.6, 0.6
+            pos_hint: {'center_x': 0.5,'center_y': 0.8}
+        MDTextField:
+            id: BaseB
+            hint_text: 'Base (B)'
+            size_hint_x: 0.3
+            helper_text: 'Numero natural o decimal con punto'
+            pos_hint: {'center_x': 0.5,'center_y': 0.5}
+        MDTextField:
+            id: Altura
+            hint_text: 'Altura'
+            size_hint_x: 0.3
+            helper_text: 'Numero natural o decimal con punto'
+            pos_hint: {'center_x': 0.5,'center_y': 0.27}
+        MDTextField:
+            id: Baseb
+            hint_text: 'Base (b)'
+            size_hint_x: 0.3
+            helper_text: 'Numero natural o decimal con punto'
+            pos_hint: {'center_x': 0.5,'center_y': 0.37}
+        MDFlatButton:
+            text: 'Calcular'
+            font_size: '30dp'
+            on_press: app.area_trapecio(BaseB.text,Baseb.text,Altura.text)
+            pos_hint: {'center_x': 0.5,'center_y': 0.17}
+        MDLabel:
+            id: rt
+            text: ""
+            font_size: '30dp'
+            color: 1,0,0,1
+            halign: 'center'
+            pos_hint: {'center_y': 0.07}
