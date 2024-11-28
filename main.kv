@@ -9,7 +9,7 @@ ScreenManager:
         name: 'log_in_screen'
         MDFloatLayout:
             Image:
-                source: "carga.png"
+                source: ".\\assets\\carga.png"
                 size_hint: 0.7,0.7
                 pos_hint: {'center_x': 0.5,'center_y': 0.75}
             MDTextField:
@@ -70,4 +70,289 @@ ScreenManager:
                     OneLineListItem:
                         text: 'Vectores'
                         on_release: ''
-    
+    Screen:
+        name: 'areas'
+        MDBoxLayout:
+            MDIconButton:
+                icon: 'arrow-left-bold-circle-outline'
+                icon_color: 1,0,0,1
+                pos_hint: {'left':1,'top': 1}
+                on_press: app.regresar('opciones_calculadora')
+            ScrollView:
+                MDList:
+                    OneLineListItem:
+                        text: 'Triangulo'
+                        on_release: app.cambio('a_triangulo')
+                    OneLineListItem:
+                        text: 'Romboide'
+                        on_release: app.cambio('a_romboide')
+                    OneLineListItem:
+                        text: 'Trapecio'
+                        on_release: app.cambio('a_trapecio')
+                    OneLineListItem:
+                        text: 'Rombo'
+                        on_release: app.cambio('a_rombo')
+                    OneLineListItem:
+                        text: 'Polígono Regular'
+                        on_release: app.cambio('a_poligono')
+                    OneLineListItem:
+                        text: 'Circulo'
+                        on_release: app.cambio('a_circulo')
+                    OneLineListItem:
+                        text: 'Sector circular'
+                        on_release: app.cambio('a_sectorc')
+                    OneLineListItem:
+                        text: 'Corona circular'
+                    OneLineListItem:
+                        text: 'Trapecio circular'
+    Screen:
+        name: 'a_triangulo'
+        MDFloatLayout:
+            MDIconButton:
+                icon: 'arrow-left-bold-circle-outline'
+                pos_hint: {'left':1,'top': 1}
+                on_press: app.regresar('areas')
+            Image:
+                source: ".\\assets\\areas\\area_triangulo.jpg"
+                size_hint: 0.6, 0.6
+                pos_hint: {'center_x': 0.5,'center_y': 0.8}
+            MDTextField:
+                id: Base
+                hint_text: 'Base'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.53}
+            MDTextField:
+                id: Altura
+                hint_text: 'Altura'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.4}
+            MDFlatButton:
+                text: 'Calcular'
+                font_size: '30dp'
+                on_press: app.area_triangulo(Base.text,Altura.text)
+                pos_hint: {'center_x': 0.5,'center_y': 0.3}
+            MDLabel:
+                id: rt
+                text: ""
+                font_size: '30dp'
+                color: 1,0,0,1
+                halign: 'center'
+                pos_hint: {'center_y': 0.2}
+    Screen:
+        name: 'a_trapecio'
+        MDFloatLayout:
+            MDIconButton:
+                icon: 'arrow-left-bold-circle-outline'
+                pos_hint: {'left':1,'top': 1}
+                on_press: app.regresar('areas')
+            Image:
+                source: ".\\assets\\areas\\area_trapecio.jpeg"
+                size_hint: 0.6, 0.6
+                pos_hint: {'center_x': 0.5,'center_y': 0.8}
+            MDTextField:
+                id: BaseB
+                hint_text: 'Base (B)'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            MDTextField:
+                id: Altura
+                hint_text: 'Altura'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.27}
+            MDTextField:
+                id: Baseb
+                hint_text: 'Base (b)'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.37}
+            MDFlatButton:
+                text: 'Calcular'
+                font_size: '30dp'
+                on_press: app.area_trapecio(BaseB.text,Baseb.text,Altura.text)
+                pos_hint: {'center_x': 0.5,'center_y': 0.17}
+            MDLabel:
+                id: rt
+                text: ""
+                font_size: '30dp'
+                color: 1,0,0,1
+                halign: 'center'
+                pos_hint: {'center_y': 0.07}
+    Screen:
+        name: 'a_sectorc'
+        MDFloatLayout:
+            MDIconButton:
+                icon: 'arrow-left-bold-circle-outline'
+                pos_hint: {'left':1,'top': 1}
+                on_press: app.regresar('areas')
+            Image:
+                source: ".\\assets\\areas\\area_sectorc.jpeg"
+                size_hint: 0.5, 0.5
+                pos_hint: {'center_x': 0.5,'center_y': 0.8}
+            MDTextField:
+                id: Angulo
+                hint_text: 'Angulo (Grados)'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            MDTextField:
+                id: Radio
+                hint_text: 'Radio'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.37}
+            MDFlatButton:
+                text: 'Calcular'
+                font_size: '30dp'
+                on_press: app.area_sectorc(Angulo.text,Radio.text)
+                pos_hint: {'center_x': 0.5,'center_y': 0.27}
+            MDLabel:
+                id: rt
+                text: ""
+                font_size: '30dp'
+                color: 1,0,0,1
+                halign: 'center'
+                pos_hint: {'center_y': 0.17}
+    Screen:
+        name: 'a_romboide'
+        MDFloatLayout:
+            MDIconButton:
+                icon: 'arrow-left-bold-circle-outline'
+                pos_hint: {'left':1,'top': 1}
+                on_press: app.regresar('areas')
+            Image:
+                source: ".\\assets\\areas\\area_romboide.png"
+                size_hint: 0.6, 0.6
+                pos_hint: {'center_x': 0.5,'center_y': 0.8}
+            MDTextField:
+                id: Base
+                hint_text: 'Base'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.53}
+            MDTextField:
+                id: Altura
+                hint_text: 'Altura'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.4}
+            MDFlatButton:
+                text: 'Calcular'
+                font_size: '30dp'
+                on_press: app.area_romboide(Base.text,Altura.text)
+                pos_hint: {'center_x': 0.5,'center_y': 0.3}
+            MDLabel:
+                id: rt
+                text: ""
+                font_size: '30dp'
+                color: 1,0,0,1
+                halign: 'center'
+                pos_hint: {'center_y': 0.2}
+    Screen:
+        name: 'a_rombo'
+        MDFloatLayout:
+            MDIconButton:
+                icon: 'arrow-left-bold-circle-outline'
+                pos_hint: {'left':1,'top': 1}
+                on_press: app.regresar('areas')
+            Image:
+                source: ".\\assets\\areas\\area_rombo.jpeg"
+                size_hint: 0.6, 0.6
+                pos_hint: {'center_x': 0.5,'center_y': 0.8}
+            MDTextField:
+                id: DiagonalMayor
+                hint_text: 'Diagonal Mayor'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.53}
+            MDTextField:
+                id: DiagonalMenor
+                hint_text: 'Diagonal Menor'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.4}
+            MDFlatButton:
+                text: 'Calcular'
+                font_size: '30dp'
+                on_press: app.area_rombo(DiagonalMayor.text,DiagonalMenor.text)
+                pos_hint: {'center_x': 0.5,'center_y': 0.3}
+            MDLabel:
+                id: rt
+                text: ""
+                font_size: '30dp'
+                color: 1,0,0,1
+                halign: 'center'
+                pos_hint: {'center_y': 0.2}
+    Screen:
+        name: 'a_poligono'
+        MDFloatLayout:
+            MDIconButton:
+                icon: 'arrow-left-bold-circle-outline'
+                pos_hint: {'left':1,'top': 1}
+                on_press: app.regresar('areas')
+            Image:
+                source: ".\\assets\\areas\\area_poligono_r.png"
+                size_hint: 0.6, 0.6
+                pos_hint: {'center_x': 0.5,'center_y': 0.8}
+            MDTextField:
+                id: Caras
+                hint_text: 'N de Caras'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
+            MDTextField:
+                id: Apotema
+                hint_text: 'Apotema'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.27}
+            MDTextField:
+                id: Lado
+                hint_text: 'Lado'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.39}
+            MDFlatButton:
+                text: 'Calcular'
+                font_size: '30dp'
+                on_press: app.area_poligono(Caras.text,Lado.text,Apotema.text)
+                pos_hint: {'center_x': 0.5,'center_y': 0.17}
+            MDLabel:
+                id: rt
+                text: ""
+                font_size: '30dp'
+                color: 1,0,0,1
+                halign: 'center'
+                pos_hint: {'center_y': 0.07}
+    Screen:
+        name: 'a_circulo'
+        MDFloatLayout:
+            MDIconButton:
+                icon: 'arrow-left-bold-circle-outline'
+                pos_hint: {'left':1,'top': 1}
+                on_press: app.regresar('areas')
+            Image:
+                source: ".\\assets\\areas\\area_circulo.jpeg"
+                size_hint: 0.5, 0.5
+                pos_hint: {'center_x': 0.5,'center_y': 0.8}
+            MDTextField:
+                id: Radio
+                hint_text: 'Radio'
+                size_hint_x: 0.3
+                helper_text: 'Numero natural o decimal con punto'
+                pos_hint: {'center_x': 0.5,'center_y': 0.48}
+            MDFlatButton:
+                text: 'Calcular'
+                font_size: '30dp'
+                on_press: app.area_circulo(Radio.text)
+                pos_hint: {'center_x': 0.5,'center_y': 0.3}
+            MDLabel:
+                id: rt
+                text: ""
+                font_size: '30dp'
+                color: 1,0,0,1
+                halign: 'center'
+                pos_hint: {'center_y': 0.2}
