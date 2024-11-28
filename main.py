@@ -25,11 +25,7 @@ class main(MDApp):
         self.root.transition = SlideTransition(direction='left')
     
     def cambio(self,nombre_pantalla):
-        if nombre_pantalla == 'opciones_calculadora':
-            self.root.current = nombre_pantalla
-        else:
-            self.rendimiento(nombre_pantalla)
-            self.root.current = nombre_pantalla
+        self.root.current = nombre_pantalla
 
     def area_triangulo(self,b,h):
         if b and h:
