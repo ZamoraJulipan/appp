@@ -1,24 +1,22 @@
 [app]
 
 # (str) Title of your application
-title = My Application
+title = BatNote
 
 # (str) Package name
-package.name = myapp
+package.name = batinotas
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.test
+package.domain = bat.man
 
 # (str) Source code where the main.py live
 source.dir = .
-
-source.include_dirs = assets
 
 # (list) Source files to include (let empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas,jpeg
 
 # (list) List of inclusions using pattern matching
-#source.include_patterns = assets/*,images/*.png
+source.include_patterns = assets/**/*
 
 # (list) Source files to exclude (let empty to not exclude anything)
 #source.exclude_exts = spec
