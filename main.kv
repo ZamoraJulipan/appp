@@ -28,147 +28,22 @@ ScreenManager:
                         on_release: ''
     Screen:
         name: 'areas'
-        MDBoxLayout:
-            MDIconButton:
-                icon: 'arrow-left-bold-circle-outline'
-                icon_color: 1,0,0,1
-                pos_hint: {'left':1,'top': 1}
-                on_press: app.regresar('opciones_calculadora')
-            ScrollView:
-                MDList:
-                    OneLineListItem:
-                        text: 'Triangulo'
-                        on_release: app.cambio('a_triangulo')
-                    OneLineListItem:
-                        text: 'Romboide'
-                        on_release: app.cambio('a_romboide')
-                    OneLineListItem:
-                        text: 'Trapecio'
-                        on_release: app.cambio('a_trapecio')
-                    OneLineListItem:
-                        text: 'Rombo'
-                        on_release: app.cambio('a_rombo')
-                    OneLineListItem:
-                        text: 'Polígono Regular'
-                        on_release: app.cambio('a_poligono')
-                    OneLineListItem:
-                        text: 'Circulo'
-                        on_release: app.cambio('a_circulo')
-                    OneLineListItem:
-                        text: 'Sector circular'
-                        on_release: app.cambio('a_sectorc')
-                    OneLineListItem:
-                        text: 'Corona circular'
-                        on_release: app.cambio('a_coronaC')
-                    OneLineListItem:
-                        text: 'Trapecio circular'
-                        on_release: app.cambio('a_trapecioC')
-    Screen:
-        name: 'a_triangulo'
         MDFloatLayout:
             MDIconButton:
                 icon: 'arrow-left-bold-circle-outline'
                 pos_hint: {'left':1,'top': 1}
-                on_press: app.regresar('areas')
+                on_press: app.regresar('opciones_calculadora')
             Image:
-                source: ".\\assets\\a.jpg"
+                source: "areas.jpg"
                 size_hint: 1,1
                 pos_hint: {'center_x': 0.5,'center_y': 0.5}
     Screen:
-        name: 'a_trapecio'
-        MDFloatLayout:
-            MDIconButton:
-                icon: 'arrow-left-bold-circle-outline'
-                pos_hint: {'left':1,'top': 1}
-                on_press: app.regresar('areas')
-            Image:
-                source: ".\\assets\\areas\\area_trapecio.jpeg"
-                size_hint: 0.75, 0.75
-                pos_hint: {'center_x': 0.5,'center_y': 0.5}
-    Screen:
-        name: 'a_sectorc'
-        MDFloatLayout:
-            MDIconButton:
-                icon: 'arrow-left-bold-circle-outline'
-                pos_hint: {'left':1,'top': 1}
-                on_press: app.regresar('areas')
-            Image:
-                source: ".\\assets\\areas\\area_sectorc.jpeg"
-                size_hint: 0.75, 0.75
-                pos_hint: {'center_x': 0.5,'center_y': 0.5}
-    Screen:
-        name: 'a_romboide'
-        MDFloatLayout:
-            MDIconButton:
-                icon: 'arrow-left-bold-circle-outline'
-                pos_hint: {'left':1,'top': 1}
-                on_press: app.regresar('areas')
-            Image:
-                source: ".\\assets\\areas\\area_romboide.png"
-                size_hint: 0.75, 0.75
-                pos_hint: {'center_x': 0.5,'center_y': 0.5}
-    Screen:
-        name: 'a_rombo'
-        MDFloatLayout:
-            MDIconButton:
-                icon: 'arrow-left-bold-circle-outline'
-                pos_hint: {'left':1,'top': 1}
-                on_press: app.regresar('areas')
-            Image:
-                source: ".\\assets\\areas\\area_rombo.jpeg"
-                size_hint: 0.75, 0.75
-                pos_hint: {'center_x': 0.5,'center_y': 0.5}
-    Screen:
-        name: 'a_poligono'
-        MDFloatLayout:
-            MDIconButton:
-                icon: 'arrow-left-bold-circle-outline'
-                pos_hint: {'left':1,'top': 1}
-                on_press: app.regresar('areas')
-            Image:
-                source: ".\\assets\\areas\\area_poligono_r.png"
-                size_hint: 0.75, 0.75
-                pos_hint: {'center_x': 0.5,'center_y': 0.5}
-    Screen:
-        name: 'a_circulo'
-        MDFloatLayout:
-            MDIconButton:
-                icon: 'arrow-left-bold-circle-outline'
-                pos_hint: {'left':1,'top': 1}
-                on_press: app.regresar('areas')
-            Image:
-                source: ".\\assets\\areas\\area_circulo.jpeg"
-                size_hint: 0.75, 0.75
-                pos_hint: {'center_x': 0.5,'center_y': 0.5}
-    Screen:
-        name: 'a_coronaC'
-        MDFloatLayout:
-            MDIconButton:
-                icon: 'arrow-left-bold-circle-outline'
-                pos_hint: {'left':1,'top': 1}
-                on_press: app.regresar('areas')
-            Image:
-                source: ".\\assets\\areas\\corona_circular.jpg"
-                size_hint: 0.75, 0.75
-                pos_hint: {'center_x': 0.5,'center_y': 0.5}
-    Screen:
-        name: 'a_trapecioC'
-        MDFloatLayout:
-            MDIconButton:
-                icon: 'arrow-left-bold-circle-outline'
-                pos_hint: {'left':1,'top': 1}
-                on_press: app.regresar('areas')
-            Image:
-                source: ".\\assets\\areas\\trapecio_circular.jpg"
-                size_hint: 0.75, 0.75
-                pos_hint: {'center_x': 0.5,'center_y': 0.5}
-    Screen:
         name: 'volumenes'
-        MDBoxLayout:
+        MDFloatLayout:
             MDIconButton:
                 icon: 'arrow-left-bold-circle-outline'
                 icon_color: 1,0,0,1
-                pos_hint: {'left':1,'bottom': 1}
+                pos_hint: {'left':1,'top': 1}
                 on_press: app.regresar('opciones_calculadora')
             Image:
                 source: "volumenes.jpg"
