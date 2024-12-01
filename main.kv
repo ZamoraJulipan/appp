@@ -45,7 +45,8 @@ ScreenManager:
                 icon_color: 1,0,0,1
                 pos_hint: {'left':1,'top': 1}
                 on_press: app.regresar('opciones_calculadora')
-            Image:
+            FitImage:
                 source: "volumenes.jpg"
-                size_hint: 1,1
-                pos_hint: {'center_x': 0.5,'center_y': 0.5}            
+                size_hint: None, None
+                size: dp(400),dp(400)
+                pos_hint: {'center_x': 0.5,'center_y': 0.5}
