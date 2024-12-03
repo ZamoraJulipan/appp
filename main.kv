@@ -47,10 +47,10 @@ ScreenManager:
                 icon_color: 1,0,0,1
                 pos_hint: {'left':1,'top': 1}
                 on_press: app.regresar('opciones_calculadora')
-            FitImage:
-                size_hint: None, None
-                size: dp(500),dp(500)
-                source: "volumenes.jpg"
+            Image:
+                #size_hint: None, None
+                #size: dp(450),dp(450)
+                source: "vol.png"
                 pos_hint: {'center_x': 0.5,'center_y': 0.5}
     Screen:
         name: 'matrices'
@@ -70,7 +70,7 @@ ScreenManager:
                         on_release: app.cambio('xmatriz')
                     OneLineListItem:
                         text: 'Sistemas de Ecuaciones'
-                        on_release: ''
+                        on_release: app.cambio('ec_sys')
                     OneLineListItem:
                         text: 'Determinantes'
                         on_release: ''
@@ -104,7 +104,7 @@ ScreenManager:
                 font_size: sp(15)
                 color: 'red'
                 padding_x: dp(10)
-                pos_hint: {'center_y':0.4}
+                pos_hint: {'center_y':0.55}
     Screen:
         name: 'xmatriz'
         MDFloatLayout:
@@ -125,4 +125,25 @@ ScreenManager:
                 padding_x: dp(10)
             Image:
                 source: 'multmatriz.png'
+                pos_hint: {'center_y':0.6}
+    Screen:
+        name: 'ec_sys'
+        MDFloatLayout:
+            MDIconButton:
+                icon: 'arrow-left-bold-circle-outline'
+                icon_color: 1,0,0,1
+                pos_hint: {'left':1,'top': 1}
+                on_press: app.regresar('matrices')
+            MDLabel:
+                padding_x: dp(10)
+                text: 'Sistemas de ecuaciones'
+                color: 'purple'
+                font_size: sp(30)
+                pos_hint: {'center_y': 0.92}
+            MDLabel:
+                text: "Para resolver sistemas de ecuaciones, siempre se repite el mismo procedimiento:"
+                pos_hint: {'center_y':0.8}
+                padding_x: dp(10)
+            Image:
+                source: 'ec_sys.png'
                 pos_hint: {'center_y':0.6}
