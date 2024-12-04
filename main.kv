@@ -1,13 +1,17 @@
 <MDFloatLayout>:
     md_bg_color: 0.73,0.75,0.72,1
 <MDBoxLayout>:
-    md_bg_color: 0.73,0.75,0.72,1
     orientation: 'vertical'
+    md_bg_color: 0.73,0.75,0.72,1
+<Contenido@MDBoxLayout>:
+    pos_hint: {'top':1}
 ScreenManager:
     id: screen_manager
     Screen:
         name: 'opciones_calculadora'
         MDBoxLayout:
+            md_bg_color: 0.73,0.75,0.72,1
+            orientation: 'vertical'
             ScrollView:
                 MDList:
                     OneLineAvatarListItem:
@@ -47,7 +51,7 @@ ScreenManager:
                 icon_color: 1,0,0,1
                 pos_hint: {'left':1,'top': 1}
                 on_press: app.regresar('opciones_calculadora')
-            Image:
+            FitImage:
                 size_hint: None, None
                 size: dp(450),dp(450)
                 source: "volumenes.jpg"
@@ -79,71 +83,73 @@ ScreenManager:
                         on_release: ''
     Screen:
         name: 'srmatriz'
-        MDFloatLayout:
+        Contenido:
             MDIconButton:
                 icon: 'arrow-left-bold-circle-outline'
                 icon_color: 1,0,0,1
-                pos_hint: {'left':1,'top': 1}
+                #pos_hint: {'left':1,'top': 1}
                 on_press: app.regresar('matrices')
             MDLabel:
                 padding_x: dp(10)
                 text: 'Suma y resta'
                 color: 'purple'
                 font_size: sp(30)
-                pos_hint: {'center_y': 0.92}
+                size_hint_y: None
+                #pos_hint: {'center_y': 0.92}
             MDLabel:
                 padding_x: dp(10)
                 text: "Para la suma y la resta se debe cumplir que tengan el mismo tamaño. Es decir, la misma cantidad de filas y columnas. Y se suma o resta directamente con el elemento que esté en la misma posición, así:"
                 halign: 'left'
-                pos_hint: {'center_y':0.8}
+                size_hint_y: None
+                #pos_hint: {'center_y':0.8}
             Image:
                 source: 'sumamatriz.png'
-                pos_hint: {'center_y':0.6}
+                #pos_hint: {'center_y':0.6}
             MDLabel:
                 text: 'Nota: Si es sumando, revisar los signos'
                 font_size: sp(15)
                 color: 'red'
                 padding_x: dp(10)
-                pos_hint: {'center_y':0.55}
+                size_hint_y: None
+                #pos_hint: {'center_y':0.55}
     Screen:
         name: 'xmatriz'
-        MDFloatLayout:
+        Contenido:
             MDIconButton:
                 icon: 'arrow-left-bold-circle-outline'
                 icon_color: 1,0,0,1
-                pos_hint: {'left':1,'top': 1}
                 on_press: app.regresar('matrices')
             MDLabel:
                 padding_x: dp(10)
                 text: 'Multiplicación'
                 color: 'purple'
                 font_size: sp(30)
-                pos_hint: {'center_y': 0.92}
+                size_hint_y: None
             MDLabel:
                 text: "El tamaño de cualquier matriz se representa como (filas x columnas). Para multiplicar 2 matrices, se necesita que el numero de columnas de la matriz 1 sea igual al numero de filas de la matriz 2. Como en el siguiente ejemplo, donde se multiplica una matriz 3x2 con una 2x1."
                 pos_hint: {'center_y':0.8}
                 padding_x: dp(10)
+                size_hint_y: None
             Image:
                 source: 'multmatriz.png'
                 pos_hint: {'center_y':0.6}
     Screen:
         name: 'ec_sys'
-        MDFloatLayout:
+        Contenido:
             MDIconButton:
                 icon: 'arrow-left-bold-circle-outline'
                 icon_color: 1,0,0,1
-                pos_hint: {'left':1,'top': 1}
                 on_press: app.regresar('matrices')
             MDLabel:
                 padding_x: dp(10)
                 text: 'Sistemas de ecuaciones'
+                size_hint_y: None
                 color: 'purple'
                 font_size: sp(30)
-                pos_hint: {'center_y': 0.92}
             MDLabel:
                 text: "Para resolver sistemas de ecuaciones, siempre se repite el mismo procedimiento:"
-                pos_hint: {'center_y':0.8}
                 padding_x: dp(10)
+                size_hint_y: None
             Image:
                 source: 'ec_sys.png'
-                pos_hint: {'center_y':0.6}
+                halign: 'center'
