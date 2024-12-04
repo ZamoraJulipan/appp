@@ -4,7 +4,7 @@
     orientation: 'vertical'
     md_bg_color: 0.73,0.75,0.72,1
 <Contenido@MDBoxLayout>:
-    pos_hint: {'top':1}
+    #pos_hint: {'top':1}
 ScreenManager:
     id: screen_manager
     Screen:
@@ -53,7 +53,7 @@ ScreenManager:
                 on_press: app.regresar('opciones_calculadora')
             FitImage:
                 size_hint: None, None
-                size: dp(450),dp(450)
+                size: dp(400),dp(400)
                 source: "volumenes.jpg"
                 pos_hint: {'center_x': 0.5,'center_y': 0.5}
     Screen:
@@ -83,35 +83,34 @@ ScreenManager:
                         on_release: ''
     Screen:
         name: 'srmatriz'
-        Contenido:
-            MDIconButton:
-                icon: 'arrow-left-bold-circle-outline'
-                icon_color: 1,0,0,1
-                #pos_hint: {'left':1,'top': 1}
-                on_press: app.regresar('matrices')
-            MDLabel:
-                padding_x: dp(10)
-                text: 'Suma y resta'
-                color: 'purple'
-                font_size: sp(30)
-                size_hint_y: None
-                #pos_hint: {'center_y': 0.92}
-            MDLabel:
-                padding_x: dp(10)
-                text: "Para la suma y la resta se debe cumplir que tengan el mismo tamaño. Es decir, la misma cantidad de filas y columnas. Y se suma o resta directamente con el elemento que esté en la misma posición, así:"
-                halign: 'left'
-                size_hint_y: None
-                #pos_hint: {'center_y':0.8}
-            Image:
-                source: 'sumamatriz.png'
-                #pos_hint: {'center_y':0.6}
-            MDLabel:
-                text: 'Nota: Si es sumando, revisar los signos'
-                font_size: sp(15)
-                color: 'red'
-                padding_x: dp(10)
-                size_hint_y: None
-                #pos_hint: {'center_y':0.55}
+        ScrollView:
+            Contenido:
+                MDIconButton:
+                    icon: 'arrow-left-bold-circle-outline'
+                    icon_color: 1,0,0,1
+                    on_press: app.regresar('matrices')
+                MDLabel:
+                    padding_x: dp(10)
+                    text: 'Suma y resta'
+                    color: 'purple'
+                    font_size: sp(30)
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                MDLabel:
+                    padding_x: dp(10)
+                    text: "Para la suma y la resta se debe cumplir que tengan el mismo tamaño. Es decir, la misma cantidad de filas y columnas. Y se suma o resta directamente con el elemento que esté en la misma posición, así:"
+                    halign: 'left'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                Image:
+                    source: 'sumamatriz.png'
+                MDLabel:
+                    text: 'Nota: Si es sumando, revisar los signos'
+                    font_size: sp(15)
+                    color: 'red'
+                    padding_x: dp(10)
+                    size_hint_y: None
+                    height: self.texture_size[1]
     Screen:
         name: 'xmatriz'
         Contenido:
@@ -146,10 +145,12 @@ ScreenManager:
                 size_hint_y: None
                 color: 'purple'
                 font_size: sp(30)
+                height: self.texture_size[1]
             MDLabel:
                 text: "Para resolver sistemas de ecuaciones, siempre se repite el mismo procedimiento:"
                 padding_x: dp(10)
                 size_hint_y: None
+                height: self.texture_size[1]
             Image:
                 source: 'ec_sys.png'
                 halign: 'center'
