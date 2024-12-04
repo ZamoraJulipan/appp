@@ -3,8 +3,6 @@
 <MDBoxLayout>:
     orientation: 'vertical'
     md_bg_color: 0.73,0.75,0.72,1
-<Contenido@MDBoxLayout>:
-    #pos_hint: {'top':1}
 ScreenManager:
     id: screen_manager
     Screen:
@@ -84,10 +82,9 @@ ScreenManager:
     Screen:
         name: 'srmatriz'
         ScrollView:
-            Contenido:
+            MDBoxLayout:
                 MDIconButton:
                     icon: 'arrow-left-bold-circle-outline'
-                    icon_color: 1,0,0,1
                     on_press: app.regresar('matrices')
                 MDLabel:
                     padding_x: dp(10)
@@ -113,44 +110,45 @@ ScreenManager:
                     height: self.texture_size[1]
     Screen:
         name: 'xmatriz'
-        Contenido:
-            MDIconButton:
-                icon: 'arrow-left-bold-circle-outline'
-                icon_color: 1,0,0,1
-                on_press: app.regresar('matrices')
-            MDLabel:
-                padding_x: dp(10)
-                text: 'Multiplicación'
-                color: 'purple'
-                font_size: sp(30)
-                size_hint_y: None
-            MDLabel:
-                text: "El tamaño de cualquier matriz se representa como (filas x columnas). Para multiplicar 2 matrices, se necesita que el numero de columnas de la matriz 1 sea igual al numero de filas de la matriz 2. Como en el siguiente ejemplo, donde se multiplica una matriz 3x2 con una 2x1."
-                pos_hint: {'center_y':0.8}
-                padding_x: dp(10)
-                size_hint_y: None
-            Image:
-                source: 'multmatriz.png'
-                pos_hint: {'center_y':0.6}
+        ScrollView:
+            MDBoxLayout:
+                MDIconButton:
+                    icon: 'arrow-left-bold-circle-outline'
+                    on_press: app.regresar('matrices')
+                MDLabel:
+                    padding_x: dp(10)
+                    text: 'Multiplicación'
+                    color: 'purple'
+                    font_size: sp(30)
+                    size_hint_y: None
+                    #height: self.texture_size[1]
+                MDLabel:
+                    text: "El tamaño de cualquier matriz se representa como (filas x columnas). Para multiplicar 2 matrices, se necesita que el numero de columnas de la matriz 1 sea igual al numero de filas de la matriz 2. Como en el siguiente ejemplo, donde se multiplica una matriz 3x2 con una 2x1."
+                    padding_x: dp(10)
+                    size_hint_y: None
+                    #height: self.texture_size[1]
+                Image:
+                    source: 'multmatriz.png'
     Screen:
         name: 'ec_sys'
-        Contenido:
-            MDIconButton:
-                icon: 'arrow-left-bold-circle-outline'
-                icon_color: 1,0,0,1
-                on_press: app.regresar('matrices')
-            MDLabel:
-                padding_x: dp(10)
-                text: 'Sistemas de ecuaciones'
-                size_hint_y: None
-                color: 'purple'
-                font_size: sp(30)
-                height: self.texture_size[1]
-            MDLabel:
-                text: "Para resolver sistemas de ecuaciones, siempre se repite el mismo procedimiento:"
-                padding_x: dp(10)
-                size_hint_y: None
-                height: self.texture_size[1]
-            Image:
-                source: 'ec_sys.png'
-                halign: 'center'
+        ScrollView:
+            MDBoxLayout:
+                MDIconButton:
+                    icon: 'arrow-left-bold-circle-outline'
+                    icon_color: 1,0,0,1
+                    on_press: app.regresar('matrices')
+                MDLabel:
+                    padding_x: dp(10)
+                    text: 'Sistemas de ecuaciones'
+                    size_hint_y: None
+                    color: 'purple'
+                    font_size: sp(30)
+                    height: self.texture_size[1]
+                MDLabel:
+                    text: "Para resolver sistemas de ecuaciones, siempre se repite el mismo procedimiento:"
+                    padding_x: dp(10)
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                Image:
+                    source: 'ec_sys.png'
+                    halign: 'center'
