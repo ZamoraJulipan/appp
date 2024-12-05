@@ -7,6 +7,10 @@
     spacing: dp(10)
     size_hint_y: None
     height: self.minimum_height
+<Texto@MDLabel>:
+    size_hint_y: None
+    padding: dp(10),0,dp(10),0
+    height: self.texture_size[1]
 ScreenManager:
     id: screen_manager
     Screen:
@@ -88,30 +92,21 @@ ScreenManager:
                     MDIconButton:
                         icon: 'arrow-left-bold-circle-outline'
                         on_press: app.regresar('matrices')
-                    MDLabel:
-                        padding: dp(10),0,dp(10),0
+                    Texto:
                         text: 'Suma y resta'
                         color: 'purple'
                         font_size: sp(30)
-                        size_hint_y: None
-                        height: self.texture_size[1]
-                    MDLabel:
-                        padding: dp(10),0,dp(10),0
+                    Texto:
                         text: "Para la suma y la resta se debe cumplir que tengan el mismo tamaño. Es decir, la misma cantidad de filas y columnas. Y se suma o resta directamente con el elemento que esté en la misma posición, así:"
                         halign: 'left'
-                        size_hint_y: None
-                        height: self.texture_size[1]
                     Image:
                         source: 'sumamatriz.png'
                         size_hint_y: None
                         height: dp(200)
-                    MDLabel:
+                    Texto:
                         text: 'Nota: Si es sumando, revisar los signos'
                         font_size: sp(15)
                         color: 'red'
-                        padding: dp(10),0,dp(10),0
-                        size_hint_y: None
-                        height: self.texture_size[1]
     Screen:
         name: 'xmatriz'
         MDBoxLayout:
@@ -120,18 +115,12 @@ ScreenManager:
                     MDIconButton:
                         icon: 'arrow-left-bold-circle-outline'
                         on_press: app.regresar('matrices')
-                    MDLabel:
-                        padding: dp(10),0,dp(10),0
+                    Texto:
                         text: 'Multiplicación'
                         color: 'purple'
                         font_size: sp(30)
-                        size_hint_y: None
-                        height: self.texture_size[1]
-                    MDLabel:
+                    Texto:
                         text: "El tamaño de cualquier matriz se representa como (filas x columnas). Para multiplicar 2 matrices, se necesita que el numero de columnas de la matriz 1 sea igual al numero de filas de la matriz 2. Como en el siguiente ejemplo, donde se multiplica una matriz 3x2 con una 2x1."
-                        padding: dp(10),0,dp(10),0
-                        size_hint_y: None
-                        height: self.texture_size[1]
                     Image:
                         source: 'multmatriz.png'
                         size_hint_y: None
@@ -144,26 +133,57 @@ ScreenManager:
                     MDIconButton:
                         icon: 'arrow-left-bold-circle-outline'
                         on_press: app.regresar('matrices')
-                    MDLabel:
+                    Texto:
                         text: 'Sistemas de ecuaciones'
-                        size_hint_y: None
                         color: 'purple'
-                        padding: dp(10),0,dp(10),0
                         font_size: sp(30)
-                        height: self.texture_size[1]
-                    MDLabel:
+                    Texto:
                         text: "Para resolver sistemas de ecuaciones, siempre se repite el mismo procedimiento:"
+                    Texto:
+                        padding: dp(10),dp(20),dp(10),0
+                        text: '1. Organizar'
+                        font_size: sp(25)
+                    Texto:
+                        text: 'Se organizan todas las ecuaciones como una matriz. Cada Ecuación es una fila en la matriz, ordenada con cada columna con la misma variable (columna 1 con las "x", col 2 con las "y", etc). Se usan solo los coeficientes (El numero que acompaña la letra) con su signo:'
+                    Image:
+                        source: 'ec_sys_1.png'
                         size_hint_y: None
-                        padding: dp(10),0,dp(10),0
-                        height: self.texture_size[1]
-                    MDBoxLayout:
-                        orientation: 'horizontal'
+                        height: dp(200)
+                    Texto:
+                        text: '2. Dividir'
+                        font_size: dp(25)
+                        padding: dp(10),dp(20),dp(10),0
+                    Texto:
+                        text: 'Se divide toda la primera fila (primera ecuación) por el primer numero que hay en ella, en este caso, por -3. Esto nos dejará con un 1 como primer numero, lo que facilitará el siguiente paso.'
+                    Image:
+                        source: 'ec_sys_2.png'
                         size_hint_y: None
-                        height: self.minimum_height
-                        spacing: dp(50)
-                        padding: dp(10)
-                        MDRectangleFlatButton:
-                            text: 'Paso 1'
-                            on_press: app.dialogo_ec_sys(1)
-                        MDRectangleFlatButton:
-                            text: 'Paso 2'
+                        height: dp(200)
+                    Texto:
+                        text: '3. Buscar el 0'
+                        font_size: dp(25)
+                        padding: dp(10),dp(20),dp(10),0
+                    Texto:
+                        text: 'Buscamos convertir los primeros numeros de las otras filas (las que no dividimos), en un 0. Esto se hace buscando un numero que sumado o restado al que vamos a volver 0, da 0.'
+                    Image:
+                        source: 'ec_sys_3.png'
+                        size_hint_y: None
+                        height: dp(200)
+                    Texto:
+                        text: 'Una vez encontrado el numero, aplicamos la siguiente formula en las filas que no dividimos:'
+                    Image:
+                        source:'ec_sys_4.png'
+                        size_hint_y:None
+                        height: dp(200)
+                    Texto:
+                        text: '4. Repetir'
+                        font_size: dp(25)
+                        padding: dp(10),dp(20),dp(10),0
+                    Texto:
+                        text: 'Se repite el proceso cambiando de fila. Ahora, se dividirá toda la fila 2 por el segundo numero (en este caso -5/3). Pero esta vez, se busca el numero que haga 0 solo la fila 3, ya no la fila 1. Al final se aplica la misma formula y se despeja.'
+                    Texto:
+                        text: 'El procedimiento de lo anteriormente dicho, sería:'
+                    Image:
+                        source: 'ec_sys_5.png'
+                        size_hint_y: None
+                        height: dp(200)
