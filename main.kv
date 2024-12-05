@@ -3,13 +3,16 @@
 <MDBoxLayout>:
     orientation: 'vertical'
     md_bg_color: 0.73,0.75,0.72,1
+<Contenido@MDBoxLayout>:
+    spacing: dp(10)
+    size_hint_y: None
+    height: self.minimum_height
 ScreenManager:
     id: screen_manager
     Screen:
         name: 'opciones_calculadora'
+        md_bg_color: 0.73,0.75,0.72,1
         MDBoxLayout:
-            md_bg_color: 0.73,0.75,0.72,1
-            orientation: 'vertical'
             ScrollView:
                 MDList:
                     OneLineAvatarListItem:
@@ -46,12 +49,11 @@ ScreenManager:
         MDFloatLayout:
             MDIconButton:
                 icon: 'arrow-left-bold-circle-outline'
-                icon_color: 1,0,0,1
                 pos_hint: {'left':1,'top': 1}
                 on_press: app.regresar('opciones_calculadora')
             FitImage:
                 size_hint: None, None
-                size: dp(400),dp(400)
+                size: dp(380),dp(380)
                 source: "volumenes.jpg"
                 pos_hint: {'center_x': 0.5,'center_y': 0.5}
     Screen:
@@ -59,7 +61,6 @@ ScreenManager:
         MDBoxLayout:
             MDIconButton:
                 icon: 'arrow-left-bold-circle-outline'
-                icon_color: 1,0,0,1
                 pos_hint: {'left':1,'top': 1}
                 on_press: app.regresar('opciones_calculadora')
             ScrollView:
@@ -81,74 +82,88 @@ ScreenManager:
                         on_release: ''
     Screen:
         name: 'srmatriz'
-        ScrollView:
-            MDBoxLayout:
-                MDIconButton:
-                    icon: 'arrow-left-bold-circle-outline'
-                    on_press: app.regresar('matrices')
-                MDLabel:
-                    padding_x: dp(10)
-                    text: 'Suma y resta'
-                    color: 'purple'
-                    font_size: sp(30)
-                    size_hint_y: None
-                    height: self.texture_size[1]
-                MDLabel:
-                    padding_x: dp(10)
-                    text: "Para la suma y la resta se debe cumplir que tengan el mismo tamaño. Es decir, la misma cantidad de filas y columnas. Y se suma o resta directamente con el elemento que esté en la misma posición, así:"
-                    halign: 'left'
-                    size_hint_y: None
-                    height: self.texture_size[1]
-                Image:
-                    source: 'sumamatriz.png'
-                MDLabel:
-                    text: 'Nota: Si es sumando, revisar los signos'
-                    font_size: sp(15)
-                    color: 'red'
-                    padding_x: dp(10)
-                    size_hint_y: None
-                    height: self.texture_size[1]
+        MDBoxLayout:
+            ScrollView:
+                Contenido:
+                    MDIconButton:
+                        icon: 'arrow-left-bold-circle-outline'
+                        on_press: app.regresar('matrices')
+                    MDLabel:
+                        padding: dp(10),0,dp(10),0
+                        text: 'Suma y resta'
+                        color: 'purple'
+                        font_size: sp(30)
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    MDLabel:
+                        padding: dp(10),0,dp(10),0
+                        text: "Para la suma y la resta se debe cumplir que tengan el mismo tamaño. Es decir, la misma cantidad de filas y columnas. Y se suma o resta directamente con el elemento que esté en la misma posición, así:"
+                        halign: 'left'
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    Image:
+                        source: 'sumamatriz.png'
+                        size_hint_y: None
+                        height: dp(200)
+                    MDLabel:
+                        text: 'Nota: Si es sumando, revisar los signos'
+                        font_size: sp(15)
+                        color: 'red'
+                        padding: dp(10),0,dp(10),0
+                        size_hint_y: None
+                        height: self.texture_size[1]
     Screen:
         name: 'xmatriz'
-        ScrollView:
-            MDBoxLayout:
-                MDIconButton:
-                    icon: 'arrow-left-bold-circle-outline'
-                    on_press: app.regresar('matrices')
-                MDLabel:
-                    padding_x: dp(10)
-                    text: 'Multiplicación'
-                    color: 'purple'
-                    font_size: sp(30)
-                    size_hint_y: None
-                    height: self.texture_size[1]
-                MDLabel:
-                    text: "El tamaño de cualquier matriz se representa como (filas x columnas). Para multiplicar 2 matrices, se necesita que el numero de columnas de la matriz 1 sea igual al numero de filas de la matriz 2. Como en el siguiente ejemplo, donde se multiplica una matriz 3x2 con una 2x1."
-                    padding_x: dp(10)
-                    size_hint_y: None
-                    height: self.texture_size[1]
-                Image:
-                    source: 'multmatriz.png'
+        MDBoxLayout:
+            ScrollView:
+                Contenido:
+                    MDIconButton:
+                        icon: 'arrow-left-bold-circle-outline'
+                        on_press: app.regresar('matrices')
+                    MDLabel:
+                        padding: dp(10),0,dp(10),0
+                        text: 'Multiplicación'
+                        color: 'purple'
+                        font_size: sp(30)
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    MDLabel:
+                        text: "El tamaño de cualquier matriz se representa como (filas x columnas). Para multiplicar 2 matrices, se necesita que el numero de columnas de la matriz 1 sea igual al numero de filas de la matriz 2. Como en el siguiente ejemplo, donde se multiplica una matriz 3x2 con una 2x1."
+                        padding: dp(10),0,dp(10),0
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    Image:
+                        source: 'multmatriz.png'
+                        size_hint_y: None
+                        height: dp(200)
     Screen:
         name: 'ec_sys'
-        ScrollView:
-            MDBoxLayout:
-                MDIconButton:
-                    icon: 'arrow-left-bold-circle-outline'
-                    icon_color: 1,0,0,1
-                    on_press: app.regresar('matrices')
-                MDLabel:
-                    padding_x: dp(10)
-                    text: 'Sistemas de ecuaciones'
-                    size_hint_y: None
-                    color: 'purple'
-                    font_size: sp(30)
-                    height: self.texture_size[1]
-                MDLabel:
-                    text: "Para resolver sistemas de ecuaciones, siempre se repite el mismo procedimiento:"
-                    padding_x: dp(10)
-                    size_hint_y: None
-                    height: self.texture_size[1]
-                Image:
-                    source: 'ec_sys.png'
-                    halign: 'center'
+        MDBoxLayout:
+            MDScrollView:
+                Contenido:
+                    MDIconButton:
+                        icon: 'arrow-left-bold-circle-outline'
+                        on_press: app.regresar('matrices')
+                    MDLabel:
+                        text: 'Sistemas de ecuaciones'
+                        size_hint_y: None
+                        color: 'purple'
+                        padding: dp(10),0,dp(10),0
+                        font_size: sp(30)
+                        height: self.texture_size[1]
+                    MDLabel:
+                        text: "Para resolver sistemas de ecuaciones, siempre se repite el mismo procedimiento:"
+                        size_hint_y: None
+                        padding: dp(10),0,dp(10),0
+                        height: self.texture_size[1]
+                    MDBoxLayout:
+                        orientation: 'horizontal'
+                        size_hint_y: None
+                        height: self.minimum_height
+                        spacing: dp(50)
+                        padding: dp(10)
+                        MDRectangleFlatButton:
+                            text: 'Paso 1'
+                            on_press: app.dialogo_ec_sys(1)
+                        MDRectangleFlatButton:
+                            text: 'Paso 2'
