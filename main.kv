@@ -11,6 +11,9 @@
     size_hint_y: None
     padding: dp(10),0,dp(10),0
     height: self.texture_size[1]
+<Imgcontent@Image>:
+    size_hint_y: None
+    height: dp(200)
 ScreenManager:
     id: screen_manager
     Screen:
@@ -80,7 +83,7 @@ ScreenManager:
                         on_release: app.cambio('ec_sys')
                     OneLineListItem:
                         text: 'Determinantes'
-                        on_release: ''
+                        on_release: app.cambio('determinantes')
                     OneLineListItem:
                         text: 'Adjunta'
                         on_release: ''
@@ -99,10 +102,8 @@ ScreenManager:
                     Texto:
                         text: "Para la suma y la resta se debe cumplir que tengan el mismo tamaño. Es decir, la misma cantidad de filas y columnas. Y se suma o resta directamente con el elemento que esté en la misma posición, así:"
                         halign: 'left'
-                    Image:
+                    Imgcontent:
                         source: 'sumamatriz.png'
-                        size_hint_y: None
-                        height: dp(200)
                     Texto:
                         text: 'Nota: Si es sumando, revisar los signos'
                         font_size: sp(15)
@@ -121,10 +122,8 @@ ScreenManager:
                         font_size: sp(30)
                     Texto:
                         text: "El tamaño de cualquier matriz se representa como (filas x columnas). Para multiplicar 2 matrices, se necesita que el numero de columnas de la matriz 1 sea igual al numero de filas de la matriz 2. Como en el siguiente ejemplo, donde se multiplica una matriz 3x2 con una 2x1."
-                    Image:
+                    Imgcontent:
                         source: 'multmatriz.png'
-                        size_hint_y: None
-                        height: dp(200)
     Screen:
         name: 'ec_sys'
         MDBoxLayout:
@@ -145,36 +144,28 @@ ScreenManager:
                         font_size: sp(25)
                     Texto:
                         text: 'Se organizan todas las ecuaciones como una matriz. Cada Ecuación es una fila en la matriz, ordenada con cada columna con la misma variable (columna 1 con las "x", col 2 con las "y", etc). Se usan solo los coeficientes (El numero que acompaña la letra) con su signo:'
-                    Image:
+                    Imgcontent:
                         source: 'ec_sys_1.png'
-                        size_hint_y: None
-                        height: dp(200)
                     Texto:
                         text: '2. Dividir'
                         font_size: dp(25)
                         padding: dp(10),dp(20),dp(10),0
                     Texto:
                         text: 'Se divide toda la primera fila (primera ecuación) por el primer numero que hay en ella, en este caso, por -3. Esto nos dejará con un 1 como primer numero, lo que facilitará el siguiente paso.'
-                    Image:
+                    Imgcontent:
                         source: 'ec_sys_2.png'
-                        size_hint_y: None
-                        height: dp(200)
                     Texto:
                         text: '3. Buscar el 0'
                         font_size: dp(25)
                         padding: dp(10),dp(20),dp(10),0
                     Texto:
                         text: 'Buscamos convertir los primeros numeros de las otras filas (las que no dividimos), en un 0. Esto se hace buscando un numero que sumado o restado al que vamos a volver 0, da 0.'
-                    Image:
+                    Imgcontent:
                         source: 'ec_sys_3.png'
-                        size_hint_y: None
-                        height: dp(200)
                     Texto:
                         text: 'Una vez encontrado el numero, aplicamos la siguiente formula en las filas que no dividimos:'
-                    Image:
+                    Imgcontent:
                         source:'ec_sys_4.png'
-                        size_hint_y:None
-                        height: dp(200)
                     Texto:
                         text: '4. Repetir'
                         font_size: dp(25)
@@ -183,7 +174,73 @@ ScreenManager:
                         text: 'Se repite el proceso cambiando de fila. Ahora, se dividirá toda la fila 2 por el segundo numero (en este caso -5/3). Pero esta vez, se busca el numero que haga 0 solo la fila 3, ya no la fila 1. Al final se aplica la misma formula y se despeja.'
                     Texto:
                         text: 'El procedimiento de lo anteriormente dicho, sería:'
-                    Image:
+                    Imgcontent:
                         source: 'ec_sys_5.png'
+                    Imgcontent:
+                        source: 'ec_sys_6.png'
+                    Imgcontent:
+                        source: 'ec_sys_7.png'
+                    Texto:
+                        text: 'Tal como se halla el valor de "Z", ahora se halla el de "Y", utilizando la segunda fila de la matriz. Por último se hallaría "X", utilizando los valores de "Y" y "Z" en la primera fila de la matriz.'
+                    Texto:
+                        text: 'Para un sistema de ecuación 2x2, se habría despejado en vez de dividir la fila 2 (primera imagen del punto 4). Si es más grande el sistema, se continua hasta llegar al despeje.'
+                    Widget:
                         size_hint_y: None
-                        height: dp(200)
+                        height: dp(100)
+    Screen:
+        name: 'determinantes'
+        MDBoxLayout:
+            ScrollView:
+                Contenido:
+                    MDIconButton:
+                        icon: 'arrow-left-bold-circle-outline'
+                        on_press: app.regresar('matrices')
+                    Texto:
+                        text: 'Determinantes'
+                        font_size: dp(30)
+                        color: 'purple'
+                    Texto:
+                        text: 'El resultado de un determinante es un numero. Para hallar un determinante se necesita que la matriz tenga el mismo numero de filas y columnas (Ejemplo: 2x2, 3x3, 4x4).'
+                    Texto:
+                        text: 'Determinante 2x2'
+                        padding: dp(10),dp(20),dp(10),0
+                        font_size: dp(25)
+                    Texto:
+                        text: 'Es el más sencillo. Se multiplica en diagonal, primero desde la parte superior izquierda y se resta con la multiplicación diagonal contraria, como se muestra en la imágen:'
+                    Imgcontent:
+                        source: 'det_1.png'
+                    Texto:
+                        text: 'Siempre se resuelve así, se multiplica la flecha roja y se resta la multiplicación de la azul.'
+                    Texto:
+                        text: 'Determinantes > 2x2'
+                        font_size: dp(25)
+                        padding: dp(10),dp(20),dp(10),0
+                    Texto:
+                        text: 'Para las matrices de 3x3 en adelante, existen varios metodos para hallar su determinante. Sin embargo, el metodo recomendado por su utilidad en otros temas es el siguiente:'
+                    Texto:
+                        text: '1. Organizar'
+                        font_size: dp(23)
+                        padding: dp(10),dp(20),dp(10),0
+                    Texto:
+                        text: 'Utilizaremos los numeros de la primera fila como se muestra en la imagen (los numeros -3, 5, -7). Empezaremos con el primer numero (-3) multiplicandolo por una matriz 2x2 conformada por los numeros que no compartan fila ni columna con él, como se ve en la imagen 2.'
+                    Imgcontent:
+                        source: 'det_2.png'
+                    Imgcontent:
+                        source: 'det_3.png'
+                    Texto:
+                        text: 'Lo que está encerrado en ROJO, no se usa pues comparte fila o columna con el primer numero de la fila 1 (-3). Mientras que lo encerrado en verde es lo que sobra, lo que no comparte, con ello se arma una matriz 2x2 y se multiplica por el numero que estamos evitando (-3)'
+                        padding: dp(10),dp(30),dp(10),0
+                    Texto:
+                        text: 'Ahora se hace el mismo procedimiento pero con el segundo numero (en este caso, 5) y finalmente con el tercero (-7). Si la matriz es más grande, se continua hasta terminar con los numeros de la primer fila. Por cada matriz 2x2 se intercala entre positivo y negativo. La primera matriz (imagen anterior) quedó como -3 pues (+)(-) = (-) . Al ser la primera matriz, se mulriplica por +, la segunda será por - y se repite hasta terminar, como en la imagen:'
+                    Imgcontent:
+                        source:'det_4.png'
+                    Texto:
+                        text: '2. Resolver'
+                        font_size: dp(23)
+                    Texto:
+                        text: 'Se resuelven los determinantes (como 2x2), se multiplican por el numero que tienen adelante y se suman o restan correspondientemente:'
+                    Imgcontent:
+                        source: 'det_5.png'
+                    Widget:
+                        size_hint_y: None
+                        height: dp(50)
