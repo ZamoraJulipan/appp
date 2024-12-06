@@ -18,7 +18,6 @@ ScreenManager:
     id: screen_manager
     Screen:
         name: 'opciones_calculadora'
-        md_bg_color: 0.73,0.75,0.72,1
         MDBoxLayout:
             ScrollView:
                 MDList:
@@ -37,9 +36,11 @@ ScreenManager:
                         on_release: app.cambio('matrices')
                         IconLeftWidget:
                             icon: 'alpha-m-box'
-                    OneLineListItem:
+                    OneLineAvatarListItem:
                         text: 'Vectores'
-                        on_release: ''
+                        on_release: app.cambio('vectores')
+                        IconLeftWidget:
+                            icon: 'alpha-v-box'
     Screen:
         name: 'areas'
         MDFloatLayout:
@@ -85,8 +86,8 @@ ScreenManager:
                         text: 'Determinantes'
                         on_release: app.cambio('determinantes')
                     OneLineListItem:
-                        text: 'Adjunta'
-                        on_release: ''
+                        text: 'Inversa por Adjunta'
+                        on_release: app.cambio('inversa')
     Screen:
         name: 'srmatriz'
         MDBoxLayout:
@@ -186,7 +187,7 @@ ScreenManager:
                         text: 'Para un sistema de ecuación 2x2, se habría despejado en vez de dividir la fila 2 (primera imagen del punto 4). Si es más grande el sistema, se continua hasta llegar al despeje.'
                     Widget:
                         size_hint_y: None
-                        height: dp(100)
+                        height: dp(25)
     Screen:
         name: 'determinantes'
         MDBoxLayout:
@@ -243,4 +244,113 @@ ScreenManager:
                         source: 'det_5.png'
                     Widget:
                         size_hint_y: None
-                        height: dp(50)
+                        height: dp(25)
+    Screen:
+        name: 'inversa'
+        MDBoxLayout:
+            ScrollView:
+                Contenido:
+                    MDIconButton:
+                        icon: 'arrow-left-bold-circle-outline'
+                        on_press: app.regresar('matrices')
+                    Texto:
+                        text: 'Matriz Inversa (Adj)'
+                        font_size: dp(30)
+                        color: 'purple'
+                    Texto:
+                        text: 'Existen principalmente 2 metodos para calcular la matriz inversa, pero el metodo de la adjunta es más sencillo aunque más largo. La matriz inversa solo se puede calcular de una matriz que tenga el mismo numero de filas que de columnas (matrices 2x2, 3x3, etc).'
+                    Texto:
+                        text: '1. Determinante'
+                        font_size: dp(25)
+                        padding: dp(10),dp(20),dp(10),0
+                    Texto:
+                        text: 'Lo primero es hallar el determinante de la matriz, se utilizará para el último punto'
+                    Texto:
+                        text: '2. Cofactores'
+                        font_size: dp(25)
+                        padding: dp(10),dp(20),dp(10),0
+                    Texto:
+                        text: 'Los cofactores se hallan de una manera parecida a un determinante de matrices 3x3 y mayores. Se toman matrices 2x2, sin multiplicarse por el numero que ignoramos (vease determinantes), pero no nos limitamos a la fila 1, sino por cada una de las filas y los numeros en ellas. Por lo tanto, la cantidad de cofactores será igual a la cantidad de elementos en la matriz:'
+                    Imgcontent:
+                        source: 'cof_1.png'
+                    Texto:
+                        text: 'Cada cofactor se saca como las matrices 2x2 en determinantes, tomando los numeros que no comparten fila ni columna con el numero que estamos ignorando (en el Cofactor 1 es el 0, en el Cofactor 2 el -1 y en el 3 el 3). Se intercalan signos entre positivo y negativo.'
+                    Texto:
+                        text: 'Una forma fácil de verlo, es que los cofactores pares se multiplicarán por (-), como sucede en el Cofactor 2 en la imagen anterior, y pasará en los cofactores 4, 6 y 8.'
+                    Imgcontent:
+                        source: 'cof_2.png'
+                    Imgcontent:
+                        source: 'cof_3.png'
+                    Texto:
+                        text: '3. Organizar'
+                        font_size: dp(25)
+                        padding: dp(10),dp(20),dp(10),0
+                    Texto:
+                        text: 'Ahora, se organiza una matriz conformada por los cofactores, en el mismo orden y posición en que fueron hallados.'
+                    Imgcontent:
+                        source: 'cof_4.png'
+                    Texto:
+                        text: 'Ya teniendo la matriz, ahora convertimos las columnas en filas y filas en columnas, de la siguiente manera:'
+                    Imgcontent:
+                        source: 'cof_5.png'
+                    Texto:
+                        text: '4. Añadir determinante'
+                        font_size: dp(25)
+                        padding: dp(10),dp(20),dp(10),0
+                    Texto:
+                        text: 'Multiplicamos la matriz resultante por 1/determinante, finalizando con la matriz inversa:'
+                    Imgcontent:
+                        source: 'cof_6.png'
+                    Widget:
+                        size_hint_y: None
+                        height: dp(25)
+    Screen:
+        name: 'vectores'
+        MDBoxLayout:
+            MDIconButton:
+                icon: 'arrow-left-bold-circle-outline'
+                on_press: app.regresar('opciones_calculadora')
+            ScrollView:
+                MDList:
+                    OneLineListItem:
+                        text: 'Introducción' #Agregar Distancia entre puntos
+                    OneLineListItem:
+                        text: 'Magnitud, dirección sentido'
+                    OneLineListItem:
+                        text: 'Suma y resta de vectores'
+                    OneLineListItem:
+                        text: 'Grafica de suma y resta'
+                    OneLineListItem:
+                        text: 'Vector Unitario'
+                    OneLineListItem:
+                        text: 'Producto Punto/Escalar'
+                    OneLineListItem:
+                        text: 'Ángulo entre vectores'
+                    OneLineListItem:
+                        text: 'Proyección'
+                    OneLineListItem:
+                        text: 'R³'
+                        on_release: app.cambio('r3')
+    Screen:
+        name: 'r3'
+        MDBoxLayout:
+            MDIconButton:
+                icon: 'arrow-left-bold-circle-outline'
+                pos_hint: {'left':1,'top': 1}
+                on_press: app.regresar('vectores')
+            ScrollView:
+                MDList:
+                    OneLineListItem:
+                        text: 'Cosenos Directores'
+                    OneLineListItem:
+                        text: 'Producto cruz'
+                    OneLineListItem:
+                        text: 'Area Paralelogramo'
+                    OneLineListItem:
+                        text: 'Altura Paralelogramo'
+                    OneLineListItem:
+                        text: 'Volumen Paralelepípedo'
+                    OneLineListItem:
+                        text: 'Ecuaciones'
+                    OneLineListItem:
+                        text: 'Ecuación del plano'
